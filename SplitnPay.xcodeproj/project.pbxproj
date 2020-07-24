@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		2028994924C96ACE007D3AD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028994824C96ACE007D3AD6 /* AppDelegate.swift */; };
 		2028994B24C96ACE007D3AD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */; };
-		2028994D24C96ACE007D3AD6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028994C24C96ACE007D3AD6 /* ViewController.swift */; };
-		2028995024C96ACE007D3AD6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2028994E24C96ACE007D3AD6 /* Main.storyboard */; };
 		2028995224C96AD1007D3AD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028995124C96AD1007D3AD6 /* Assets.xcassets */; };
 		2028995524C96AD1007D3AD6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2028995324C96AD1007D3AD6 /* LaunchScreen.storyboard */; };
+		2028995D24C96C21007D3AD6 /* CalculateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028995C24C96C21007D3AD6 /* CalculateViewController.swift */; };
+		2028995F24C96C98007D3AD6 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028995E24C96C98007D3AD6 /* BillViewController.swift */; };
+		20E70B5124C9A18500AE571B /* CalculatorBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20E70B5024C9A18500AE571B /* CalculatorBrain.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2028994524C96ACE007D3AD6 /* SplitnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028994824C96ACE007D3AD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		2028994C24C96ACE007D3AD6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		2028994F24C96ACE007D3AD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2028995124C96AD1007D3AD6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2028995424C96AD1007D3AD6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2028995624C96AD1007D3AD6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2028995C24C96C21007D3AD6 /* CalculateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewController.swift; sourceTree = "<group>"; };
+		2028995E24C96C98007D3AD6 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		20E70B5024C9A18500AE571B /* CalculatorBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorBrain.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +60,22 @@
 			children = (
 				2028994824C96ACE007D3AD6 /* AppDelegate.swift */,
 				2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */,
-				2028994C24C96ACE007D3AD6 /* ViewController.swift */,
-				2028994E24C96ACE007D3AD6 /* Main.storyboard */,
+				2028995C24C96C21007D3AD6 /* CalculateViewController.swift */,
+				2028995E24C96C98007D3AD6 /* BillViewController.swift */,
 				2028995124C96AD1007D3AD6 /* Assets.xcassets */,
 				2028995324C96AD1007D3AD6 /* LaunchScreen.storyboard */,
 				2028995624C96AD1007D3AD6 /* Info.plist */,
+				20E70B5224C9A18D00AE571B /* Model */,
 			);
 			path = SplitnPay;
+			sourceTree = "<group>";
+		};
+		20E70B5224C9A18D00AE571B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				20E70B5024C9A18500AE571B /* CalculatorBrain.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +138,6 @@
 			files = (
 				2028995524C96AD1007D3AD6 /* LaunchScreen.storyboard in Resources */,
 				2028995224C96AD1007D3AD6 /* Assets.xcassets in Resources */,
-				2028995024C96ACE007D3AD6 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +148,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2028994D24C96ACE007D3AD6 /* ViewController.swift in Sources */,
+				2028995F24C96C98007D3AD6 /* BillViewController.swift in Sources */,
 				2028994924C96ACE007D3AD6 /* AppDelegate.swift in Sources */,
 				2028994B24C96ACE007D3AD6 /* SceneDelegate.swift in Sources */,
+				20E70B5124C9A18500AE571B /* CalculatorBrain.swift in Sources */,
+				2028995D24C96C21007D3AD6 /* CalculateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		2028994E24C96ACE007D3AD6 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				2028994F24C96ACE007D3AD6 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		2028995324C96AD1007D3AD6 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -294,7 +298,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedattar.demo.SplitnPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -312,7 +316,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.mohamedattar.demo.SplitnPay;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
