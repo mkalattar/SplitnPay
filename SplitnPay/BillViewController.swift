@@ -19,9 +19,9 @@ let infoStackView           = UIStackView()
 
 class BillViewController: UIViewController {
     
-    var people:Int?
-    var tip:String?
-    var bill:Float?
+    var people:String?
+    var tip:Float?
+    var bill:String?
 
     
     override func viewDidLoad() {
@@ -44,7 +44,7 @@ class BillViewController: UIViewController {
     func configureInfoForBillLabel() {
         view.addSubview(infoForBillLabel)
         
-        infoForBillLabel.text           = "Split between \(people!) people with \n\(tip!) tip."
+        infoForBillLabel.text           = "Split between \(people!) people with \n\(tipStringed(tip: tip!)) tip."
         infoForBillLabel.font           = .systemFont(ofSize: 25)
         infoForBillLabel.textColor      = .systemGray
         infoForBillLabel.numberOfLines  = 0
@@ -76,7 +76,7 @@ class BillViewController: UIViewController {
     }
     
     func configureBillForPerson() {
-        billPerPersonLabel.text         = "$\(String(format: "%0.1f", bill!))"
+        billPerPersonLabel.text         = "$\(String(format: "%0.1f", calculateBill(people: Int(people!)!, tip: tip!, bill: bill!)))"
         billPerPersonLabel.font         = .systemFont(ofSize: 50, weight: .bold)
         billPerPersonLabel.textColor    = .systemGreen
     }
@@ -120,6 +120,23 @@ class BillViewController: UIViewController {
     
     @objc func recalculateButtonPressed() {
         dismiss(animated: true, completion: nil)
+    }
+    
+    func calculateBill(people: Int, tip: Float, bill: String) -> Float {
+        let billAfterTip = (Float(bill)!*tip) + Float(bill)!
+        let billResult = billAfterTip / Float(people)
+        return billResult
+    }
+    
+    func tipStringed(tip: Float) -> String {
+        switch tip {
+        case 0:
+            return "0%"
+        case 0.10:
+            return "10%"
+        default:
+            return "20%"
+        }
     }
     
     

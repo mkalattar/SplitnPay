@@ -32,6 +32,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     let tag0 = 0
     let tag1 = 1
     let tag2 = 2
+    var tip:Float = 0
     
     
     override func viewDidLoad() {
@@ -177,7 +178,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         enterBillTotalLabel.textColor = .systemGray
         
         // Constraints
-        enterBillTotalLabel.translatesAutoresizingMaskIntoConstraints                                                 = false
+        enterBillTotalLabel.translatesAutoresizingMaskIntoConstraints                                       = false
         enterBillTotalLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50).isActive    = true
         enterBillTotalLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -50).isActive = true
     }
@@ -203,8 +204,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     func configureStackView() {
         view.addSubview(stackView)
-        stackView.axis = .vertical
-        stackView.spacing = 26
+        stackView.axis      = .vertical
+        stackView.spacing   = 26
         
         // Calling to create elements
         configureEnterBillTotalLabel()
@@ -315,11 +316,27 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func calculateButtonPressed() {
-        billVC.people   = 5
-        billVC.bill     = 59.80
-        billVC.tip      = "%10"
+        billVC.people   = stepperValueLabel.text!
+        billVC.bill     = billTotalTextField.text!
+        billVC.tip      = tip
         
         present(billVC, animated: true, completion: nil)
+        
+        zeroTipButton.isSelected  = false
+        zeroTipButton.backgroundColor = .systemBackground
+        zeroTipButton.setTitleColor(.systemGreen, for: .normal)
+        
+        tenTipButton.isSelected   = false
+        tenTipButton.backgroundColor = .systemBackground
+        tenTipButton.setTitleColor(.systemGreen, for: .normal)
+        
+        twntyTipButton.isSelected = false
+        twntyTipButton.backgroundColor = .systemBackground
+        twntyTipButton.setTitleColor(.systemGreen, for: .normal)
+        
+        billTotalTextField.text = nil
+        
+        stepperValueLabel.text = "2"
     }
     
     @objc func buttonPressed(button: UIButton) {
@@ -328,8 +345,10 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
             buttonSelected(button: button)
         case tag1:
             buttonSelected(button: button)
+            tip = 0.10
         default:
             buttonSelected(button: button)
+            tip = 0.20
         }
         
     }
@@ -338,12 +357,12 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
 
 
 extension CalculateViewController {
-func hideKeyboardWhenTappedAround() {
-    let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalculateViewController.dismissKeyboard))
-    tap.cancelsTouchesInView = false
-    view.addGestureRecognizer(tap)
-    stepperView.addGestureRecognizer(tap)
-}
+    func hideKeyboardWhenTappedAround() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(CalculateViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        stepperView.addGestureRecognizer(tap)
+    }
     @objc func dismissKeyboard() {
         view.endEditing(true)
         stepperView.endEditing(true)
