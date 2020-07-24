@@ -3,8 +3,10 @@ A beautifully designed simple app dark mode enabled for splitting the bill betwe
 
 ## Dark mode
 
-![first screen mockup](/MockUps/FirstScreen.png) | ![second screen mockup](/MockUps/SeconScreen.png)
+![first screen mockup](/MockUps/FirstScreen.png)
+![second screen mockup](/MockUps/SeconScreen.png)
 
 ## Light Mode
 
-![third screen mockup](/MockUps/thirdScreen.png) | ![second screen mockup](/MockUps/fourth.png)
+![third screen mockup](/MockUps/thirdScreen.png)
+![second screen mockup](/MockUps/fourth.png)
