@@ -123,12 +123,6 @@ class BillViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    func calculateBill(people: Int, tip: Float, bill: String) -> Float {
-        let billAfterTip = (Float(bill)!*tip) + Float(bill)!
-        let billResult = billAfterTip / Float(people)
-        return billResult
-    }
-    
     func tipStringed(tip: Float) -> String {
         switch tip {
         case 0:

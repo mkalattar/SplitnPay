@@ -105,7 +105,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         
         
         // Constraints
-        stepper.translatesAutoresizingMaskIntoConstraints                                           = false
+        stepper.translatesAutoresizingMaskIntoConstraints  = false
     }
     
     @objc func stepperValueChanged() {
@@ -330,8 +330,8 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     }
     
     func calculateBill(people: Int, tip: Float, bill: String) -> Float {
-        let billAfterTip = (Float(bill)!*tip) + Float(bill)!
-        let billResult = billAfterTip / Float(people)
+        let billAfterTip    = (Float(bill)!*tip) + Float(bill)!
+        let billResult      = billAfterTip / Float(people)
         return billResult
     }
     
