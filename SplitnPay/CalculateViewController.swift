@@ -32,6 +32,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     let tag0        = 0
     let tag1        = 1
     let tag2        = 2
+    
     var tip:Float   = 0
     
     
@@ -42,7 +43,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         billTotalTextField.delegate = self
         self.hideKeyboardWhenTappedAround()
         
-        calculateButton.addTarget(self, action: #selector(calculateButtonPressed), for: .touchUpInside)
+        
         configureStackView()
         configureStepperView()
         configureCalculateButton()
@@ -302,6 +303,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     func configureCalculateButton() {
         view.addSubview(calculateButton)
+        calculateButton.addTarget(self, action: #selector(calculateButtonPressed), for: .touchUpInside)
         
         // Constraints
         calculateButton.translatesAutoresizingMaskIntoConstraints                         = false
@@ -316,12 +318,37 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         calculateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
     }
     
+    
+    var stepperValue2 = ""
+    var bill2         = ""
+    var tip2:Float    = 0.0
+    
+    func initializeData() {
+        stepperValue2 = stepperValueLabel.text!
+        bill2         = billTotalTextField.text ?? "0"
+        tip2          = tip
+    }
+    
+    func calculateBill(people: Int, tip: Float, bill: String) -> Float {
+        let billAfterTip = (Float(bill)!*tip) + Float(bill)!
+        let billResult = billAfterTip / Float(people)
+        return billResult
+    }
+    
     @objc func calculateButtonPressed() {
-        billVC.people   = stepperValueLabel.text!
-        billVC.bill     = billTotalTextField.text!
-        billVC.tip      = tip
         
         
+        
+        initializeData()
+        
+        billVC.billPerPersonLabel.text         = "$\(String(format: "%0.1f", calculateBill(people: Int(stepperValue2)!, tip: tip2, bill: bill2)))"
+        billVC.infoForBillLabel.text           = "Split between \(stepperValue2) people with \n\(billVC.tipStringed(tip: tip2)) tip."
+        
+        billVC.people   = stepperValue2
+        billVC.bill     = bill2
+        billVC.tip      = tip2
+        
+        present(billVC, animated: true, completion: nil)
         
         zeroTipButton.isSelected        = false
         zeroTipButton.backgroundColor   = .systemBackground
@@ -337,8 +364,6 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         
         billTotalTextField.text         = nil
         stepperValueLabel.text          = "2"
-        
-        present(billVC, animated: true, completion: nil)
     }
     
     @objc func buttonPressed(button: UIButton) {

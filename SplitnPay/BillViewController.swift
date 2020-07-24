@@ -8,16 +8,18 @@
 
 import UIKit
 
-
 let totalPerPersonLabel     = UILabel()
-let billPerPersonLabel      = UILabel()
-let infoForBillLabel        = UILabel()
 let recalculateButton       = UIButton()
 let infoView                = UIView()
 let infoStackView           = UIStackView()
 
 
 class BillViewController: UIViewController {
+    
+    
+    let billPerPersonLabel      = UILabel()
+    let infoForBillLabel        = UILabel()
+    
     
     var people:String?
     var tip:Float?
@@ -37,14 +39,13 @@ class BillViewController: UIViewController {
         configureBillForPerson()
         configureInfoForBillLabel()
         
-        
         recalculateButton.addTarget(self, action: #selector(recalculateButtonPressed), for: .touchUpInside)
     }
     
     func configureInfoForBillLabel() {
         view.addSubview(infoForBillLabel)
         
-        infoForBillLabel.text           = "Split between \(people!) people with \n\(tipStringed(tip: tip!)) tip."
+        
         infoForBillLabel.font           = .systemFont(ofSize: 25)
         infoForBillLabel.textColor      = .systemGray
         infoForBillLabel.numberOfLines  = 0
@@ -76,7 +77,7 @@ class BillViewController: UIViewController {
     }
     
     func configureBillForPerson() {
-        billPerPersonLabel.text         = "$\(String(format: "%0.1f", calculateBill(people: Int(people!)!, tip: tip!, bill: bill!)))"
+        
         billPerPersonLabel.font         = .systemFont(ofSize: 50, weight: .bold)
         billPerPersonLabel.textColor    = .systemGreen
     }
