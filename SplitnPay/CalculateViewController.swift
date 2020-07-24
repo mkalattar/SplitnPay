@@ -29,10 +29,10 @@ let stepperStackview    = UIStackView()
 
 class CalculateViewController: UIViewController, UITextFieldDelegate {
     
-    let tag0 = 0
-    let tag1 = 1
-    let tag2 = 2
-    var tip:Float = 0
+    let tag0        = 0
+    let tag1        = 1
+    let tag2        = 2
+    var tip:Float   = 0
     
     
     override func viewDidLoad() {
@@ -87,6 +87,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         stepperValueLabel.font      = UIFont.systemFont(ofSize: 35)
         stepperValueLabel.textColor = .systemGreen
         stepperValueLabel.text      = "2"
+        
         // Constraints
         stepperValueLabel.translatesAutoresizingMaskIntoConstraints = false
     }
@@ -320,23 +321,24 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         billVC.bill     = billTotalTextField.text!
         billVC.tip      = tip
         
-        present(billVC, animated: true, completion: nil)
         
-        zeroTipButton.isSelected  = false
-        zeroTipButton.backgroundColor = .systemBackground
+        
+        zeroTipButton.isSelected        = false
+        zeroTipButton.backgroundColor   = .systemBackground
         zeroTipButton.setTitleColor(.systemGreen, for: .normal)
         
-        tenTipButton.isSelected   = false
-        tenTipButton.backgroundColor = .systemBackground
+        tenTipButton.isSelected         = false
+        tenTipButton.backgroundColor    = .systemBackground
         tenTipButton.setTitleColor(.systemGreen, for: .normal)
         
-        twntyTipButton.isSelected = false
-        twntyTipButton.backgroundColor = .systemBackground
+        twntyTipButton.isSelected       = false
+        twntyTipButton.backgroundColor  = .systemBackground
         twntyTipButton.setTitleColor(.systemGreen, for: .normal)
         
-        billTotalTextField.text = nil
+        billTotalTextField.text         = nil
+        stepperValueLabel.text          = "2"
         
-        stepperValueLabel.text = "2"
+        present(billVC, animated: true, completion: nil)
     }
     
     @objc func buttonPressed(button: UIButton) {
