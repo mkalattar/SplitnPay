@@ -7,27 +7,31 @@
 //
 import UIKit
 
-let billVC              = BillViewController()
-let calculateButton     = UIButton()
-let stackView           = UIStackView()
-let enterBillTotalLabel = UILabel()
-let billTotalTextField  = UITextField()
-
-// StepperView elements
-let stepperView         = UIView()
-let selectTipLabel      = UILabel()
-let zeroTipButton       = UIButton()
-let tenTipButton        = UIButton()
-let twntyTipButton      = UIButton()
-let chooseSplitLabel    = UILabel()
-let stepperValueLabel   = UILabel()
-let stepper             = UIStepper()
-let buttonsStackView    = UIStackView()
-let bigStackView        = UIStackView()
-let stepperStackview    = UIStackView()
-
-
 class CalculateViewController: UIViewController, UITextFieldDelegate {
+    
+
+    let billVC              = BillViewController()
+    let calculateButton     = SPButton(buttonLabel: "Calculate")
+    let stackView           = UIStackView()
+    let enterBillTotalLabel = SPLabel(text: "Enter Bill Total")
+    let billTotalTextField  = UITextField()
+
+    // StepperView elements
+    let stepperView         = UIView()
+    let selectTipLabel      = SPLabel(text: "Select Tip")
+    
+    let zeroTipButton       = SPTipButton(buttonLabel: "0%")
+    let tenTipButton        = SPTipButton(buttonLabel: "10%")
+    let twntyTipButton      = SPTipButton(buttonLabel: "20%")
+    
+    let chooseSplitLabel    = SPLabel(text: "Choose Split")
+    let stepperValueLabel   = UILabel()
+    let stepper             = UIStepper()
+    
+    let buttonsStackView    = UIStackView()
+    let bigStackView        = UIStackView()
+    let stepperStackview    = UIStackView()
+
     
     let tag0        = 0
     let tag1        = 1
@@ -162,22 +166,17 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     func configureChooseSplitLabel() {
         stepperView.addSubview(chooseSplitLabel)
-        chooseSplitLabel.font       = UIFont.systemFont(ofSize: 25)
-        chooseSplitLabel.text       = "Choose Split"
-        chooseSplitLabel.textColor  = .systemGray
         
         // Constraints
-        chooseSplitLabel.translatesAutoresizingMaskIntoConstraints                                              = false
-        chooseSplitLabel.leadingAnchor.constraint(equalTo: bigStackView.leadingAnchor, constant: 30).isActive   = true
-        chooseSplitLabel.trailingAnchor.constraint(equalTo: bigStackView.trailingAnchor, constant: 30).isActive = true
+        NSLayoutConstraint.activate([
+            chooseSplitLabel.leadingAnchor.constraint(equalTo: bigStackView.leadingAnchor, constant: 30),
+            chooseSplitLabel.trailingAnchor.constraint(equalTo: bigStackView.trailingAnchor, constant: 30)
+        ])
     }
     
     
     func configureEnterBillTotalLabel() {
         view.addSubview(enterBillTotalLabel)
-        enterBillTotalLabel.text      = "Enter Bill Total"
-        enterBillTotalLabel.font      = UIFont.systemFont(ofSize: 25)
-        enterBillTotalLabel.textColor = .systemGray
         
         // Constraints
         enterBillTotalLabel.translatesAutoresizingMaskIntoConstraints                                       = false
@@ -229,51 +228,30 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
     
     func configureSelectTip() {
         stepperView.addSubview(selectTipLabel)
-        selectTipLabel.text         = "Select Tip"
-        selectTipLabel.font         = UIFont.systemFont(ofSize: 25)
-        selectTipLabel.textColor    = .systemGray
         
         // Constraints
-        selectTipLabel.translatesAutoresizingMaskIntoConstraints                                                = false
-        selectTipLabel.leadingAnchor.constraint(equalTo: bigStackView.leadingAnchor, constant: 30).isActive     = true
-        selectTipLabel.trailingAnchor.constraint(equalTo: bigStackView.trailingAnchor, constant: -30).isActive  = true
-        
+        NSLayoutConstraint.activate([
+            selectTipLabel.leadingAnchor.constraint(equalTo: bigStackView.leadingAnchor, constant: 30),
+            selectTipLabel.trailingAnchor.constraint(equalTo: bigStackView.trailingAnchor, constant: -30)
+        ])
     }
     
     func configureZeroTipButton() {
         stepperView.addSubview(zeroTipButton)
-        zeroTipButton.setTitleColor(.systemGreen, for: .normal)
-        zeroTipButton.titleLabel?.font  = UIFont.systemFont(ofSize: 35)
-        zeroTipButton.setTitle("0%", for: .normal)
         zeroTipButton.tag = tag0
         zeroTipButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        // Constraints
-        zeroTipButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configureTenTipButton() {
         stepperView.addSubview(tenTipButton)
-        tenTipButton.setTitleColor(.systemGreen, for: .normal)
-        tenTipButton.titleLabel?.font   = UIFont.systemFont(ofSize: 35)
-        tenTipButton.setTitle("10%", for: .normal)
         tenTipButton.tag = tag1
         tenTipButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        // Constraints
-        tenTipButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configureTwntyTipButton() {
         stepperView.addSubview(twntyTipButton)
-        twntyTipButton.setTitleColor(.systemGreen, for: .normal)
-        twntyTipButton.titleLabel?.font = UIFont.systemFont(ofSize: 35)
-        twntyTipButton.setTitle("20%", for: .normal)
         twntyTipButton.tag = tag2
         twntyTipButton.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
-        
-        // Constraints
-        twntyTipButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     func configureButtonsStackView() {
@@ -306,16 +284,14 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         calculateButton.addTarget(self, action: #selector(calculateButtonPressed), for: .touchUpInside)
         
         // Constraints
-        calculateButton.translatesAutoresizingMaskIntoConstraints                         = false
-        calculateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive    = true
-        calculateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive      = true
-        calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive    = true
-        calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive  = true
-        calculateButton.heightAnchor.constraint(equalToConstant: 100).isActive            = true
+        NSLayoutConstraint.activate([
+            calculateButton.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            calculateButton.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            calculateButton.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            calculateButton.heightAnchor.constraint(equalToConstant: 100)
+        ])
         
-        calculateButton.setTitle("Calculate", for: .normal)
-        calculateButton.backgroundColor  = .systemGreen
-        calculateButton.titleLabel?.font = UIFont.boldSystemFont(ofSize: 30)
+        
     }
     
     

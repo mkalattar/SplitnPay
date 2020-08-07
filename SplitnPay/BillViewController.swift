@@ -8,7 +8,7 @@
 
 import UIKit
 
-let totalPerPersonLabel     = UILabel()
+let totalPerPersonLabel     = SPLabel(text: "Total per person")
 let recalculateButton       = UIButton()
 let infoView                = UIView()
 let infoStackView           = UIStackView()
@@ -35,7 +35,6 @@ class BillViewController: UIViewController {
         configureRecalculateButton()
         configureInfoView()
         configureStackView()
-        configureTotalPerPersonLabel()
         configureBillForPerson()
         configureInfoForBillLabel()
         
@@ -68,13 +67,7 @@ class BillViewController: UIViewController {
         infoView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive    = true
         infoView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive  = true
     }
-    
-    
-    func configureTotalPerPersonLabel() {
-        totalPerPersonLabel.text        = "Total Per Person"
-        totalPerPersonLabel.font        = .systemFont(ofSize: 30)
-        totalPerPersonLabel.textColor   = .systemGray
-    }
+
     
     func configureBillForPerson() {
         

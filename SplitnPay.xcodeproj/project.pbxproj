@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2004086424DD1FD300A68443 /* SPButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004086324DD1FD300A68443 /* SPButton.swift */; };
+		2004086624DD234B00A68443 /* SPLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004086524DD234B00A68443 /* SPLabel.swift */; };
+		2004086824DD26E800A68443 /* SPTipButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2004086724DD26E800A68443 /* SPTipButton.swift */; };
 		2028994924C96ACE007D3AD6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028994824C96ACE007D3AD6 /* AppDelegate.swift */; };
 		2028994B24C96ACE007D3AD6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */; };
 		2028995224C96AD1007D3AD6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2028995124C96AD1007D3AD6 /* Assets.xcassets */; };
@@ -16,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2004086324DD1FD300A68443 /* SPButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPButton.swift; sourceTree = "<group>"; };
+		2004086524DD234B00A68443 /* SPLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPLabel.swift; sourceTree = "<group>"; };
+		2004086724DD26E800A68443 /* SPTipButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SPTipButton.swift; sourceTree = "<group>"; };
 		2028994524C96ACE007D3AD6 /* SplitnPay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SplitnPay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2028994824C96ACE007D3AD6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -37,6 +43,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2004086224DD1F9F00A68443 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2004086324DD1FD300A68443 /* SPButton.swift */,
+				2004086524DD234B00A68443 /* SPLabel.swift */,
+				2004086724DD26E800A68443 /* SPTipButton.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2028993C24C96ACE007D3AD6 = {
 			isa = PBXGroup;
 			children = (
@@ -56,6 +72,7 @@
 		2028994724C96ACE007D3AD6 /* SplitnPay */ = {
 			isa = PBXGroup;
 			children = (
+				2004086224DD1F9F00A68443 /* Views */,
 				2028994824C96ACE007D3AD6 /* AppDelegate.swift */,
 				2028994A24C96ACE007D3AD6 /* SceneDelegate.swift */,
 				2028995C24C96C21007D3AD6 /* CalculateViewController.swift */,
@@ -140,7 +157,10 @@
 				2028995F24C96C98007D3AD6 /* BillViewController.swift in Sources */,
 				2028994924C96ACE007D3AD6 /* AppDelegate.swift in Sources */,
 				2028994B24C96ACE007D3AD6 /* SceneDelegate.swift in Sources */,
+				2004086424DD1FD300A68443 /* SPButton.swift in Sources */,
 				2028995D24C96C21007D3AD6 /* CalculateViewController.swift in Sources */,
+				2004086824DD26E800A68443 /* SPTipButton.swift in Sources */,
+				2004086624DD234B00A68443 /* SPLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
