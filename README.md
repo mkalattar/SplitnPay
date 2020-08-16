@@ -1,5 +1,5 @@
 # SplitnPay
-A beautifully designed simple app dark mode enabled for splitting the bill between you and your friends built with programmatic UI.
+A beautifully designed simple dark mode enabled app for splitting the bill between you and your friends built with programmatic UI, Bon Appetit!
 
 ## Dark mode
 
