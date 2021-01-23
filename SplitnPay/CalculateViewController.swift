@@ -346,6 +346,7 @@ class CalculateViewController: UIViewController, UITextFieldDelegate {
         switch button.tag {
         case tag0:
             buttonSelected(button: button)
+            tip = 0
         case tag1:
             buttonSelected(button: button)
             tip = 0.10
